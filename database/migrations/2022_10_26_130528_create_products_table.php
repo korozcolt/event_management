@@ -17,8 +17,8 @@ return new class extends Migration {
             $table->string("name");
             $table->text("description");
             $table->string("status");
-            $table->float("price");
-            $table->float("quantity");
+            $table->float("price", 10, 2);
+            $table->float("quantity", 10, 2);
             $table->timestamps();
         });
     }

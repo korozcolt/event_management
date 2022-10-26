@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId("product_id")->constrained();
             $table->foreignId("event_id")->constrained();
-            $table->float("total_price");
-            $table->float("total_quantity");
+            $table->float("total_price", 10, 2);
+            $table->float("total_quantity", 10, 2);
             $table->timestamps();
         });
     }
