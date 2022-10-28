@@ -36,6 +36,9 @@ return new class extends Migration {
                 "unknown",
                 "pending",
             ]);
+            $table->date("start_date");
+            $table->date("end_date");
+            $table->boolean("all_day");
             $table->timestamps();
         });
     }
