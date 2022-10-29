@@ -37,8 +37,11 @@ return new class extends Migration {
                 "pending",
             ]);
             $table->date("start_date");
-            $table->date("end_date");
+            $table->date("end_date")->nullable();
             $table->boolean("all_day");
+            $table->string("country")->nullable();
+            $table->string("city")->nullable();
+            $table->string("state")->nullable();
             $table->timestamps();
         });
     }
