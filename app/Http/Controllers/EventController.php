@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Alert;
 
 class EventController extends Controller
 {
@@ -14,7 +15,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return view("events.index", [
+            "events" => Event::all(),
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        Alert::success("Success Title", "Success Message");
     }
 
     /**

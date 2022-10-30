@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", function () {
+    return view("welcome");
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get("/dashboard", function () {
+    return view("dashboard");
+})
+    ->middleware(["auth", "verified"])
+    ->name("dashboard");
 
-require __DIR__.'/auth.php';
+Route::resource("events", EventController::class)->middleware(
+    "auth",
+    "verified"
+);
+
+Route::resource("products", ProductController::class)->middleware(
+    "auth",
+    "verified"
+);
+require __DIR__ . "/auth.php";
